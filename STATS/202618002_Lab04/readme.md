@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-Opens at `http://localhost:8501`. Make sure `medical_insurance.csv` is in the same directory as `app.py`.
+Opens at `https://medinc.streamlit.app/`. Make sure `medical_insurance.csv` is in the same directory as `app.py`.
 
 ## Synthesis of findings
 
