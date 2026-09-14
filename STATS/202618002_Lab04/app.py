@@ -183,7 +183,7 @@ def themed(fig, title=None):
 # Data + model (cached)
 @st.cache_data
 def load_data():
-    df = pd.read_csv("medical_insurance.csv")
+    df = pd.read_csv("STATS/202618D02_Lab04/medical_insurance.csv")
     return df.drop_duplicates().reset_index(drop=True)
  
  
