@@ -4,7 +4,7 @@ Dataset: Medical Insurance Costs (medical_insurance.csv)
  
 Run with:  streamlit run app.py
 """
- 
+import os
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -183,7 +183,8 @@ def themed(fig, title=None):
 # Data + model (cached)
 @st.cache_data
 def load_data():
-    df = pd.read_csv("STATS/202618002_Lab04/medical_insurance.csv")
+    BASE_DIR = os.path.dirname(os.path.abspath(_file_))
+    df = pd.read_csv(os.path.join(BASE_DIR, "medical_insurance.csv"))
     return df.drop_duplicates().reset_index(drop=True)
  
  
