@@ -4,7 +4,7 @@ Dataset: Medical Insurance Costs (medical_insurance.csv)
  
 Run with:  streamlit run app.py
 """
-import os
+import glob
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -183,8 +183,11 @@ def themed(fig, title=None):
 # Data + model (cached)
 @st.cache_data
 def load_data():
-    BASE_DIR = os.path.dirname(os.path.abspath(_file_))
-    df = pd.read_csv(os.path.join(BASE_DIR, "medical_insurance.csv"))
+    matches = glob.glob("**/medical_insurance.csv", recursive=True)
+    if not matches:
+        st.error("Could not find medical_insurance.csv anywhere in the repo.")
+        st.stop()
+    df = pd.read_csv(matches[0])
     return df.drop_duplicates().reset_index(drop=True)
  
  
